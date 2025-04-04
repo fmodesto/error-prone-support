@@ -250,7 +250,7 @@ final class ImmutableSetMultimapRulesRecipesTest implements RewriteTest {
                                 import java.util.Map;
                                 
                                 class Test {
-                                    ImmutableSet<ImmutableSetMultimap<String, Integer>>test() {
+                                    ImmutableSet<ImmutableSetMultimap<String, Integer>> test() {
                                         return ImmutableSet.of(ImmutableSetMultimap.of("foo", 1L).asMap().entrySet().stream().collect(ImmutableSetMultimap.flatteningToImmutableSetMultimap(Map.Entry::getKey, e -> e.getValue().stream().map(Math::toIntExact))), Multimaps.asMap((Multimap<String, Long>) ImmutableSetMultimap.of("bar", 2L)).entrySet().stream().collect(ImmutableSetMultimap.flatteningToImmutableSetMultimap(Map.Entry::getKey, e -> e.getValue().stream().map(n -> Math.toIntExact(n)))), Multimaps.asMap(ImmutableListMultimap.of("baz", 3L)).entrySet().stream().collect(ImmutableSetMultimap.flatteningToImmutableSetMultimap(Map.Entry::getKey, e -> e.getValue().stream().map(Math::toIntExact))), Multimaps.asMap(ImmutableSetMultimap.of("qux", 4L)).entrySet().stream().collect(ImmutableSetMultimap.flatteningToImmutableSetMultimap(Map.Entry::getKey, e -> e.getValue().stream().map(n -> Math.toIntExact(n)))), Multimaps.asMap(TreeMultimap.<String, Long>create()).entrySet().stream().collect(ImmutableSetMultimap.flatteningToImmutableSetMultimap(Map.Entry::getKey, e -> e.getValue().stream().map(Math::toIntExact))));
                                     }
                                 }
@@ -259,7 +259,7 @@ final class ImmutableSetMultimapRulesRecipesTest implements RewriteTest {
                                 import com.google.common.collect.*;
                                 
                                 class Test {
-                                    ImmutableSet<ImmutableSetMultimap<String, Integer>>test() {
+                                    ImmutableSet<ImmutableSetMultimap<String, Integer>> test() {
                                         return ImmutableSet.of(ImmutableSetMultimap.copyOf(Multimaps.transformValues(ImmutableSetMultimap.of("foo", 1L), Math::toIntExact)), ImmutableSetMultimap.copyOf(Multimaps.transformValues((Multimap<String, Long>) ImmutableSetMultimap.of("bar", 2L), n -> Math.toIntExact(n))), ImmutableSetMultimap.copyOf(Multimaps.transformValues(ImmutableListMultimap.of("baz", 3L), Math::toIntExact)), ImmutableSetMultimap.copyOf(Multimaps.transformValues(ImmutableSetMultimap.of("qux", 4L), n -> Math.toIntExact(n))), ImmutableSetMultimap.copyOf(Multimaps.transformValues(TreeMultimap.<String, Long>create(), Math::toIntExact)));
                                     }
                                 }

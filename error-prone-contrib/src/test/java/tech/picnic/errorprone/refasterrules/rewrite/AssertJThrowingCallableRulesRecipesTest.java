@@ -23,7 +23,7 @@ final class AssertJThrowingCallableRulesRecipesTest implements RewriteTest {
                                 import org.assertj.core.api.Assertions;
                                 
                                 class Test {
-                                    ImmutableSet<AbstractThrowableAssert<?, ? extends Throwable>>test() {
+                                    ImmutableSet<AbstractThrowableAssert<?, ? extends Throwable>> test() {
                                         return ImmutableSet.of(Assertions.assertThatThrownBy(() -> {
                                         }).isInstanceOf(IllegalArgumentException.class).hasMessage(String.format("foo %s", "bar")), Assertions.assertThatThrownBy(() -> {
                                         }).isInstanceOf(IllegalArgumentException.class).hasMessage(String.format("foo %s %s", "bar", 1)));
@@ -36,7 +36,7 @@ final class AssertJThrowingCallableRulesRecipesTest implements RewriteTest {
                                 import org.assertj.core.api.Assertions;
                                 
                                 class Test {
-                                    ImmutableSet<AbstractThrowableAssert<?, ? extends Throwable>>test() {
+                                    ImmutableSet<AbstractThrowableAssert<?, ? extends Throwable>> test() {
                                         return ImmutableSet.of(Assertions.assertThatThrownBy(() -> {
                                         }).isInstanceOf(IllegalArgumentException.class).hasMessage("foo %s", "bar"), Assertions.assertThatThrownBy(() -> {
                                         }).isInstanceOf(IllegalArgumentException.class).hasMessage("foo %s %s", "bar", 1));
@@ -60,7 +60,7 @@ final class AssertJThrowingCallableRulesRecipesTest implements RewriteTest {
                                 import org.assertj.core.api.Assertions;
                                 
                                 class Test {
-                                    ImmutableSet<AbstractThrowableAssert<?, ? extends Throwable>>test() {
+                                    ImmutableSet<AbstractThrowableAssert<?, ? extends Throwable>> test() {
                                         return ImmutableSet.of(Assertions.assertThatThrownBy(() -> {
                                         }).isInstanceOf(IllegalArgumentException.class).withFailMessage(String.format("foo %s", "bar")), Assertions.assertThatThrownBy(() -> {
                                         }).isInstanceOf(IllegalArgumentException.class).withFailMessage(String.format("foo %s %s", "bar", 1)));
@@ -73,7 +73,7 @@ final class AssertJThrowingCallableRulesRecipesTest implements RewriteTest {
                                 import org.assertj.core.api.Assertions;
                                 
                                 class Test {
-                                    ImmutableSet<AbstractThrowableAssert<?, ? extends Throwable>>test() {
+                                    ImmutableSet<AbstractThrowableAssert<?, ? extends Throwable>> test() {
                                         return ImmutableSet.of(Assertions.assertThatThrownBy(() -> {
                                         }).isInstanceOf(IllegalArgumentException.class).withFailMessage("foo %s", "bar"), Assertions.assertThatThrownBy(() -> {
                                         }).isInstanceOf(IllegalArgumentException.class).withFailMessage("foo %s %s", "bar", 1));
@@ -639,7 +639,7 @@ final class AssertJThrowingCallableRulesRecipesTest implements RewriteTest {
                                 import org.assertj.core.api.Assertions;
                                 
                                 class Test {
-                                    AbstractObjectAssert<?, ?>test() {
+                                    AbstractObjectAssert<?, ?> test() {
                                         return Assertions.assertThatIllegalArgumentException().isThrownBy(() -> {
                                         }).withMessageNotContainingAny("foo", "bar");
                                     }
@@ -650,7 +650,7 @@ final class AssertJThrowingCallableRulesRecipesTest implements RewriteTest {
                                 import org.assertj.core.api.Assertions;
                                 
                                 class Test {
-                                    AbstractObjectAssert<?, ?>test() {
+                                    AbstractObjectAssert<?, ?> test() {
                                         return Assertions.assertThatThrownBy(() -> {
                                         }).isInstanceOf(IllegalArgumentException.class).hasMessageNotContainingAny("foo", "bar");
                                     }
@@ -705,7 +705,7 @@ final class AssertJThrowingCallableRulesRecipesTest implements RewriteTest {
                                 import org.assertj.core.api.Assertions;
                                 
                                 class Test {
-                                    AbstractObjectAssert<?, ?>test() {
+                                    AbstractObjectAssert<?, ?> test() {
                                         return Assertions.assertThatIllegalArgumentException().isThrownBy(() -> {
                                         }).withMessageStartingWith("foo");
                                     }
@@ -716,7 +716,7 @@ final class AssertJThrowingCallableRulesRecipesTest implements RewriteTest {
                                 import org.assertj.core.api.Assertions;
                                 
                                 class Test {
-                                    AbstractObjectAssert<?, ?>test() {
+                                    AbstractObjectAssert<?, ?> test() {
                                         return Assertions.assertThatThrownBy(() -> {
                                         }).isInstanceOf(IllegalArgumentException.class).hasMessageStartingWith("foo");
                                     }
