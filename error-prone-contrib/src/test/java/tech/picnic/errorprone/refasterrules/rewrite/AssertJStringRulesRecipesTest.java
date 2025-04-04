@@ -198,7 +198,6 @@ final class AssertJStringRulesRecipesTest implements RewriteTest {
                                 import org.assertj.core.api.Assertions;
                                 
                                 import java.io.IOException;
-                                import java.nio.charset.Charset;
                                 import java.nio.charset.StandardCharsets;
                                 import java.nio.file.Paths;
                                 
