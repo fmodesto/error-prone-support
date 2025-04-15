@@ -89,6 +89,8 @@ final class ImmutableSortedSetRulesRecipesTest implements RewriteTest {
                                 
                                 import java.util.Comparator;
                                 
+                                import static java.util.Comparator.naturalOrder;
+                                
                                 class Test {
                                     ImmutableSortedSet.Builder<String> test() {
                                         return ImmutableSortedSet.orderedBy(Comparator.<String>naturalOrder());

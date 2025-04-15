@@ -56,7 +56,6 @@ final class ImmutableListMultimapRulesRecipesTest implements RewriteTest {
                                 import com.google.common.collect.ImmutableMultimap;
                                 
                                 import java.util.Map;
-                                import java.util.function.Function;
                                 import java.util.stream.Stream;
                                 
                                 class Test {
@@ -139,8 +138,6 @@ final class ImmutableListMultimapRulesRecipesTest implements RewriteTest {
                         """
                                 import com.google.common.collect.*;
                                 
-                                import java.util.function.Function;
-                                
                                 class Test {
                                     ImmutableSet<ImmutableListMultimap<Integer, Integer>> test() {
                                         return ImmutableSet.of(Multimaps.index(ImmutableList.of(1).iterator(), n -> n * 2), Multimaps.index(ImmutableList.of(2).iterator(), n -> n * 2), Streams.stream(ImmutableList.of(3).iterator()).collect(ImmutableListMultimap.toImmutableListMultimap(n -> n * 2, v -> 0)), Multimaps.index(ImmutableList.of(4)::iterator, Integer::valueOf), Multimaps.index(ImmutableList.of(5)::iterator, Integer::valueOf), Streams.stream(ImmutableList.of(6)::iterator).collect(ImmutableListMultimap.toImmutableListMultimap(Integer::valueOf, v -> 0)), Multimaps.index(ImmutableList.of(7), n -> n.intValue()), Multimaps.index(ImmutableList.of(8), n -> n.intValue()), ImmutableList.of(9).stream().collect(ImmutableListMultimap.toImmutableListMultimap(n -> n.intValue(), v -> 0)));
@@ -162,7 +159,6 @@ final class ImmutableListMultimapRulesRecipesTest implements RewriteTest {
                                 import com.google.common.collect.*;
                                 
                                 import java.util.Map;
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     ImmutableList<ImmutableMultimap<String, Integer>> test() {
@@ -232,7 +228,6 @@ final class ImmutableListMultimapRulesRecipesTest implements RewriteTest {
                                 import com.google.common.collect.ImmutableListMultimap;
                                 
                                 import java.util.Map;
-                                import java.util.function.Function;
                                 import java.util.stream.Stream;
                                 
                                 class Test {
@@ -267,7 +262,6 @@ final class ImmutableListMultimapRulesRecipesTest implements RewriteTest {
                                 import com.google.common.collect.ImmutableListMultimap;
                                 
                                 import java.util.Map;
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     ImmutableListMultimap<String, Integer> test() {
@@ -300,7 +294,6 @@ final class ImmutableListMultimapRulesRecipesTest implements RewriteTest {
                                 import com.google.common.collect.*;
                                 
                                 import java.util.Map;
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     ImmutableSet<ImmutableListMultimap<String, Integer>> test() {

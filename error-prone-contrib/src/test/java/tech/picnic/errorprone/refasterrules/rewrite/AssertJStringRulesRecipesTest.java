@@ -198,12 +198,14 @@ final class AssertJStringRulesRecipesTest implements RewriteTest {
                                 import org.assertj.core.api.Assertions;
                                 
                                 import java.io.IOException;
-                                import java.nio.charset.StandardCharsets;
+                                import java.nio.charset.Charset;
                                 import java.nio.file.Paths;
+                                
+                                import static java.nio.charset.StandardCharsets.UTF_8;
                                 
                                 class Test {
                                     AbstractStringAssert<?> test() throws IOException {
-                                        return Assertions.assertThat(Paths.get("")).content(StandardCharsets.UTF_8);
+                                        return Assertions.assertThat(Paths.get("")).content(UTF_8);
                                     }
                                 }
                                 """

@@ -407,8 +407,6 @@ final class ImmutableSetRulesRecipesTest implements RewriteTest {
                         """
                                 import com.google.common.collect.ImmutableSet;
                                 
-                                import java.util.function.Predicate;
-                                
                                 class Test {
                                     ImmutableSet<Integer> test() {
                                         return ImmutableSet.of(1).stream().filter(ImmutableSet.of(2)::contains).collect(ImmutableSet.toImmutableSet());
@@ -439,8 +437,6 @@ final class ImmutableSetRulesRecipesTest implements RewriteTest {
                         """
                                 import com.google.common.collect.ImmutableMap;
                                 import com.google.common.collect.ImmutableSet;
-                                
-                                import java.util.function.Predicate;
                                 
                                 class Test {
                                     ImmutableSet<Integer> test() {
@@ -473,8 +469,6 @@ final class ImmutableSetRulesRecipesTest implements RewriteTest {
                         """
                                 import com.google.common.collect.ImmutableSet;
                                 import com.google.common.collect.ImmutableSetMultimap;
-                                
-                                import java.util.function.Predicate;
                                 
                                 class Test {
                                     ImmutableSet<Integer> test() {

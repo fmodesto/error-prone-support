@@ -164,6 +164,8 @@ final class StringRulesRecipesTest implements RewriteTest {
                                 import java.util.Optional;
                                 import java.util.function.Predicate;
                                 
+                                import static java.util.function.Predicate.not;
+                                
                                 class Test {
                                     ImmutableSet<Optional<String>> test() {
                                         return ImmutableSet.of(Optional.ofNullable(toString()).filter(Predicate.not(String::isEmpty)), Optional.ofNullable(toString()).filter(Predicate.not(String::isEmpty)), Optional.ofNullable(toString()).filter(Predicate.not(String::isEmpty)), Optional.ofNullable(toString()).filter(Predicate.not(String::isEmpty)));
@@ -558,11 +560,11 @@ final class StringRulesRecipesTest implements RewriteTest {
                         .parser(JavaParser.fromJavaVersion().classpath(JavaParser.runtimeClasspath())),
                 java(
                         """
-                                import java.nio.charset.StandardCharsets;
+                                import static java.nio.charset.StandardCharsets.UTF_8;
                                 
                                 class Test {
                                     int test() {
-                                        return "foo".getBytes(StandardCharsets.UTF_8).length;
+                                        return "foo".getBytes(UTF_8).length;
                                     }
                                 }
                                 """,

@@ -260,6 +260,9 @@ final class ComparatorRulesRecipesTest implements RewriteTest {
                                 
                                 import java.util.Comparator;
                                 
+                                import static java.util.Comparator.naturalOrder;
+                                import static java.util.Comparator.reverseOrder;
+                                
                                 class Test {
                                     ImmutableSet<Integer> test() {
                                         return ImmutableSet.of(Comparator.<String>naturalOrder().compare("foo", "bar"), Comparator.<String>reverseOrder().compare("baz", "qux"));
@@ -333,6 +336,8 @@ final class ComparatorRulesRecipesTest implements RewriteTest {
                                 import com.google.common.collect.ImmutableSet;
                                 
                                 import java.util.Comparator;
+                                
+                                import static java.util.Comparator.comparing;
                                 
                                 class Test {
                                     ImmutableSet<Comparator<String>> test() {
@@ -779,6 +784,8 @@ final class ComparatorRulesRecipesTest implements RewriteTest {
                                 
                                 import java.util.Comparator;
                                 
+                                import static java.util.Comparator.comparing;
+                                
                                 class Test {
                                     ImmutableSet<Comparator<String>> test() {
                                         return ImmutableSet.of(Comparator.naturalOrder(), Comparator.naturalOrder(), Comparator.naturalOrder(), Comparator.comparing(s -> 0), Comparator.naturalOrder(), Comparator.naturalOrder());
@@ -813,6 +820,8 @@ final class ComparatorRulesRecipesTest implements RewriteTest {
                                 
                                 import java.util.Comparator;
                                 
+                                import static java.util.Comparator.reverseOrder;
+                                
                                 class Test {
                                     ImmutableSet<Comparator<String>> test() {
                                         return ImmutableSet.of(Comparator.reverseOrder(), Comparator.reverseOrder(), Comparator.reverseOrder());
@@ -832,7 +841,8 @@ final class ComparatorRulesRecipesTest implements RewriteTest {
                 java(
                         """
                                 import java.util.Comparator;
-                                import java.util.function.Function;
+                                
+                                import static java.util.Comparator.naturalOrder;
                                 
                                 class Test {
                                     Comparator<String> test() {
@@ -842,7 +852,8 @@ final class ComparatorRulesRecipesTest implements RewriteTest {
                                 """,
                         """
                                 import java.util.Comparator;
-                                import java.util.function.Function;
+                                
+                                import static java.util.Comparator.naturalOrder;
                                 
                                 class Test {
                                     Comparator<String> test() {
@@ -863,7 +874,8 @@ final class ComparatorRulesRecipesTest implements RewriteTest {
                 java(
                         """
                                 import java.util.Comparator;
-                                import java.util.function.Function;
+                                
+                                import static java.util.Comparator.naturalOrder;
                                 
                                 class Test {
                                     Comparator<String> test() {
@@ -873,7 +885,8 @@ final class ComparatorRulesRecipesTest implements RewriteTest {
                                 """,
                         """
                                 import java.util.Comparator;
-                                import java.util.function.Function;
+                                
+                                import static java.util.Comparator.naturalOrder;
                                 
                                 class Test {
                                     Comparator<String> test() {
@@ -894,7 +907,9 @@ final class ComparatorRulesRecipesTest implements RewriteTest {
                 java(
                         """
                                 import java.util.Comparator;
-                                import java.util.function.Function;
+                                
+                                import static java.util.Comparator.naturalOrder;
+                                import static java.util.Comparator.reverseOrder;
                                 
                                 class Test {
                                     Comparator<String> test() {
@@ -904,7 +919,9 @@ final class ComparatorRulesRecipesTest implements RewriteTest {
                                 """,
                         """
                                 import java.util.Comparator;
-                                import java.util.function.Function;
+                                
+                                import static java.util.Comparator.naturalOrder;
+                                import static java.util.Comparator.reverseOrder;
                                 
                                 class Test {
                                     Comparator<String> test() {
@@ -926,6 +943,8 @@ final class ComparatorRulesRecipesTest implements RewriteTest {
                         """
                                 import java.util.Comparator;
                                 
+                                import static java.util.Comparator.naturalOrder;
+                                
                                 class Test {
                                     Comparator<Integer> test() {
                                         return Comparator.<Integer>naturalOrder().thenComparing(Comparator.comparingDouble(Integer::doubleValue));
@@ -934,6 +953,8 @@ final class ComparatorRulesRecipesTest implements RewriteTest {
                                 """,
                         """
                                 import java.util.Comparator;
+                                
+                                import static java.util.Comparator.naturalOrder;
                                 
                                 class Test {
                                     Comparator<Integer> test() {
@@ -955,6 +976,8 @@ final class ComparatorRulesRecipesTest implements RewriteTest {
                         """
                                 import java.util.Comparator;
                                 
+                                import static java.util.Comparator.naturalOrder;
+                                
                                 class Test {
                                     Comparator<Integer> test() {
                                         return Comparator.<Integer>naturalOrder().thenComparing(Comparator.comparingInt(Integer::intValue));
@@ -963,6 +986,8 @@ final class ComparatorRulesRecipesTest implements RewriteTest {
                                 """,
                         """
                                 import java.util.Comparator;
+                                
+                                import static java.util.Comparator.naturalOrder;
                                 
                                 class Test {
                                     Comparator<Integer> test() {
@@ -984,6 +1009,8 @@ final class ComparatorRulesRecipesTest implements RewriteTest {
                         """
                                 import java.util.Comparator;
                                 
+                                import static java.util.Comparator.naturalOrder;
+                                
                                 class Test {
                                     Comparator<Integer> test() {
                                         return Comparator.<Integer>naturalOrder().thenComparing(Comparator.comparingLong(Integer::longValue));
@@ -992,6 +1019,8 @@ final class ComparatorRulesRecipesTest implements RewriteTest {
                                 """,
                         """
                                 import java.util.Comparator;
+                                
+                                import static java.util.Comparator.naturalOrder;
                                 
                                 class Test {
                                     Comparator<Integer> test() {
@@ -1015,6 +1044,8 @@ final class ComparatorRulesRecipesTest implements RewriteTest {
                                 
                                 import java.util.Comparator;
                                 import java.util.function.Function;
+                                
+                                import static java.util.Comparator.naturalOrder;
                                 
                                 class Test {
                                     ImmutableSet<Comparator<String>> test() {
@@ -1046,7 +1077,8 @@ final class ComparatorRulesRecipesTest implements RewriteTest {
                 java(
                         """
                                 import java.util.Comparator;
-                                import java.util.function.Function;
+                                
+                                import static java.util.Comparator.naturalOrder;
                                 
                                 class Test {
                                     Comparator<String> test() {
@@ -1056,7 +1088,8 @@ final class ComparatorRulesRecipesTest implements RewriteTest {
                                 """,
                         """
                                 import java.util.Comparator;
-                                import java.util.function.Function;
+                                
+                                import static java.util.Comparator.naturalOrder;
                                 
                                 class Test {
                                     Comparator<String> test() {

@@ -24,7 +24,6 @@ final class ImmutableMapRulesRecipesTest implements RewriteTest {
                                 import com.google.common.collect.Streams;
                                 
                                 import java.util.Map;
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     ImmutableSet<Map<String, Integer>> test() {
@@ -61,7 +60,6 @@ final class ImmutableMapRulesRecipesTest implements RewriteTest {
                                 import com.google.common.collect.ImmutableSet;
                                 
                                 import java.util.Map;
-                                import java.util.function.Function;
                                 import java.util.stream.Stream;
                                 
                                 class Test {
@@ -155,7 +153,6 @@ final class ImmutableMapRulesRecipesTest implements RewriteTest {
                                 import com.google.common.collect.ImmutableMap;
                                 
                                 import java.util.Map;
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     ImmutableMap<String, Integer> test() {
@@ -188,7 +185,6 @@ final class ImmutableMapRulesRecipesTest implements RewriteTest {
                                 import com.google.common.collect.ImmutableMap;
                                 
                                 import java.util.Map;
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     ImmutableMap<String, Integer> test() {
@@ -480,8 +476,6 @@ final class ImmutableMapRulesRecipesTest implements RewriteTest {
                         """
                                 import com.google.common.collect.*;
                                 
-                                import java.util.function.Function;
-                                
                                 class Test {
                                     ImmutableSet<ImmutableMap<Integer, Integer>> test() {
                                         return ImmutableSet.of(Maps.uniqueIndex(ImmutableList.of(1), n -> n * 2), Maps.uniqueIndex(ImmutableList.of(2), n -> n * 2), ImmutableList.of(3).stream().collect(ImmutableMap.toImmutableMap(n -> n * 2, v -> 0)), Maps.uniqueIndex(ImmutableList.of(4)::iterator, Integer::valueOf), Maps.uniqueIndex(ImmutableList.of(5)::iterator, Integer::valueOf), Streams.stream(ImmutableList.of(6)::iterator).collect(ImmutableMap.toImmutableMap(Integer::valueOf, v -> 0)), Maps.uniqueIndex(ImmutableList.of(7).iterator(), n -> n.intValue()), Maps.uniqueIndex(ImmutableList.of(8).iterator(), n -> n.intValue()), Streams.stream(ImmutableList.of(9).iterator()).collect(ImmutableMap.toImmutableMap(n -> n.intValue(), v -> 0)));
@@ -513,8 +507,6 @@ final class ImmutableMapRulesRecipesTest implements RewriteTest {
                         """
                                 import com.google.common.collect.*;
                                 
-                                import java.util.function.Function;
-                                
                                 class Test {
                                     ImmutableSet<ImmutableMap<Integer, Integer>> test() {
                                         return ImmutableSet.of(Maps.toMap(ImmutableList.of(1), n -> n * 2), Maps.toMap(ImmutableList.of(2), n -> n * 2), ImmutableList.of(3).stream().collect(ImmutableMap.toImmutableMap(k -> 0, n -> n * 2)), Maps.toMap(ImmutableList.of(4)::iterator, Integer::valueOf), Maps.toMap(ImmutableList.of(5)::iterator, Integer::valueOf), Streams.stream(ImmutableList.of(6)::iterator).collect(ImmutableMap.toImmutableMap(k -> 0, Integer::valueOf)), Maps.toMap(ImmutableList.of(7).iterator(), n -> n.intValue()), Maps.toMap(ImmutableList.of(8).iterator(), n -> n.intValue()), Streams.stream(ImmutableList.of(9).iterator()).collect(ImmutableMap.toImmutableMap(k -> 0, n -> n.intValue())), Maps.toMap(ImmutableSet.of(10), Integer::valueOf));
@@ -536,7 +528,6 @@ final class ImmutableMapRulesRecipesTest implements RewriteTest {
                                 import com.google.common.collect.ImmutableMap;
                                 
                                 import java.util.Map;
-                                import java.util.function.Function;
                                 import java.util.stream.Stream;
                                 
                                 class Test {
@@ -573,7 +564,6 @@ final class ImmutableMapRulesRecipesTest implements RewriteTest {
                                 import com.google.common.collect.Maps;
                                 
                                 import java.util.Map;
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     ImmutableSet<ImmutableMap<String, Integer>> test() {

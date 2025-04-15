@@ -22,8 +22,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import com.google.common.collect.ImmutableSet;
                                 import reactor.core.publisher.Flux;
                                 
-                                import java.util.function.Function;
-                                
                                 class Test {
                                     ImmutableSet<Flux<String>> test() {
                                         return ImmutableSet.of(Flux.just(ImmutableList.of("foo")).concatMap(list -> Flux.fromIterable(list)), Flux.just(ImmutableList.of("bar")).concatMap(Flux::fromIterable));
@@ -58,8 +56,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import com.google.common.collect.ImmutableList;
                                 import com.google.common.collect.ImmutableSet;
                                 import reactor.core.publisher.Flux;
-                                
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     ImmutableSet<Flux<String>> test() {
@@ -131,8 +127,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.core.publisher.Mono;
                                 import reactor.test.StepVerifier;
                                 
-                                import java.util.function.Function;
-                                
                                 class Test {
                                     StepVerifier.Step<?> test() {
                                         return Flux.just(1).collect(ImmutableList.toImmutableList()).as(StepVerifier::create).assertNext(list -> Assertions.assertThat(list).containsExactly(2));
@@ -142,8 +136,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                         """
                                 import reactor.core.publisher.Flux;
                                 import reactor.test.StepVerifier;
-                                
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     StepVerifier.Step<?> test() {
@@ -164,8 +156,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                 java(
                         """
                                 import reactor.core.publisher.Flux;
-                                
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     Flux<Number> test() {
@@ -235,8 +225,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.core.publisher.Flux;
                                 import reactor.core.publisher.Mono;
                                 
-                                import java.util.function.Function;
-                                
                                 class Test {
                                     Mono<ImmutableSet<Integer>> test() {
                                         return Flux.just(1).collect(ImmutableList.toImmutableList()).map(ImmutableSet::copyOf);
@@ -283,8 +271,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.core.publisher.Flux;
                                 import reactor.core.publisher.Mono;
                                 
-                                import java.util.function.Function;
-                                
                                 class Test {
                                     ImmutableSet<Flux<Integer>> test() {
                                         return ImmutableSet.of(Flux.just(1).concatMap(Mono::just), Flux.just(2).concatMap(Mono::just), Flux.just(3).concatMap(Mono::just), Flux.just(4).concatMap(Mono::just), Flux.just(5).concatMap(Mono::just), Flux.just(6).map(Mono::just).concatMap(v -> Mono.empty()));
@@ -319,8 +305,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import com.google.common.collect.ImmutableList;
                                 import com.google.common.collect.ImmutableSet;
                                 import reactor.core.publisher.Flux;
-                                
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     ImmutableSet<Flux<Integer>> test() {
@@ -357,8 +341,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import com.google.common.collect.ImmutableSet;
                                 import reactor.core.publisher.Flux;
                                 
-                                import java.util.function.Function;
-                                
                                 class Test {
                                     ImmutableSet<Flux<Integer>> test() {
                                         return ImmutableSet.of(Flux.just(1).concatMapIterable(ImmutableList::of, 5), Flux.just(2).concatMapIterable(ImmutableList::of, 5), Flux.just(3).concatMapIterable(ImmutableList::of, 5), Flux.just(4).map(ImmutableList::of).concatMapIterable(v -> ImmutableSet.of(), 5));
@@ -394,8 +376,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.core.publisher.Flux;
                                 import reactor.core.publisher.Mono;
                                 
-                                import java.util.function.Function;
-                                
                                 class Test {
                                     ImmutableSet<Flux<Integer>> test() {
                                         return ImmutableSet.of(Flux.just(1).concatMap(Mono::just, 3), Flux.just(2).concatMap(Mono::just, 4), Flux.just(3).concatMap(Mono::just, 5), Flux.just(4).concatMap(Mono::just, 6), Flux.just(5).map(Mono::just).concatMap(v -> Mono.empty(), 7));
@@ -423,7 +403,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import java.util.ArrayList;
                                 import java.util.Collection;
                                 import java.util.List;
-                                import java.util.function.Function;
                                 import java.util.function.Supplier;
                                 import java.util.stream.Collectors;
                                 
@@ -437,8 +416,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import com.google.common.collect.ImmutableSet;
                                 import reactor.core.publisher.Flux;
                                 import reactor.core.publisher.Mono;
-                                
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     ImmutableSet<Mono<Integer>> test() {
@@ -845,7 +822,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.core.publisher.Flux;
                                 
                                 import java.util.Optional;
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     Flux<Integer> test() {
@@ -1413,8 +1389,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.core.publisher.Mono;
                                 import reactor.math.MathFlux;
                                 
-                                import java.util.function.Function;
-                                
                                 class Test {
                                     Mono<Integer> test() {
                                         return Flux.just(1).transform(MathFlux::max).singleOrEmpty();
@@ -1439,7 +1413,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 
                                 import java.util.Comparator;
                                 import java.util.Optional;
-                                import java.util.function.Function;
                                 import java.util.stream.Collectors;
                                 
                                 class Test {
@@ -1488,8 +1461,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.core.publisher.Mono;
                                 import reactor.math.MathFlux;
                                 
-                                import java.util.function.Function;
-                                
                                 class Test {
                                     Mono<Integer> test() {
                                         return Flux.just(1).transform(MathFlux::min).singleOrEmpty();
@@ -1514,7 +1485,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 
                                 import java.util.Comparator;
                                 import java.util.Optional;
-                                import java.util.function.Function;
                                 import java.util.stream.Collectors;
                                 
                                 class Test {
@@ -1591,6 +1561,8 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                         """
                                 import reactor.core.publisher.Flux;
                                 import reactor.function.TupleUtils;
+                                
+                                import static reactor.function.TupleUtils.function;
                                 
                                 class Test {
                                     Flux<String> test() {
@@ -1781,8 +1753,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                 java(
                         """
                                 import reactor.core.publisher.Mono;
-                                
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     Mono<Number> test() {
@@ -2016,8 +1986,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import com.google.common.collect.ImmutableSet;
                                 import reactor.core.publisher.Mono;
                                 
-                                import java.util.function.Function;
-                                
                                 class Test {
                                     ImmutableSet<Mono<String>> test() {
                                         return ImmutableSet.of(Mono.just("foo").flatMap(Mono::just), Mono.just("bar").flatMap(Mono::just), Mono.just("baz").map(Mono::just).flatMap(v -> Mono.empty()));
@@ -2053,8 +2021,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.core.publisher.Flux;
                                 import reactor.core.publisher.Mono;
                                 
-                                import java.util.function.Function;
-                                
                                 class Test {
                                     ImmutableSet<Flux<Integer>> test() {
                                         return ImmutableSet.of(Mono.just(1).flatMapIterable(ImmutableSet::of), Mono.just(2).flatMapIterable(ImmutableSet::of), Mono.just(3).flatMapIterable(ImmutableSet::of), Mono.just(4).map(ImmutableSet::of).flatMapIterable(v -> ImmutableSet.of()), Mono.just(5).flatMapIterable(ImmutableSet::of));
@@ -2076,8 +2042,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import com.google.common.collect.ImmutableSet;
                                 import reactor.core.publisher.Flux;
                                 import reactor.core.publisher.Mono;
-                                
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     Flux<Integer> test() {
@@ -2126,8 +2090,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import com.google.common.collect.ImmutableSet;
                                 import reactor.core.publisher.Flux;
                                 import reactor.core.publisher.Mono;
-                                
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     ImmutableSet<Flux<Integer>> test() {
@@ -2181,8 +2143,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import com.google.common.collect.ImmutableSet;
                                 import reactor.core.publisher.Flux;
                                 import reactor.core.publisher.Mono;
-                                
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     ImmutableSet<Flux<String>> test() {
@@ -2350,7 +2310,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.core.publisher.Mono;
                                 
                                 import java.util.Optional;
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     Mono<Integer> test() {
@@ -2420,8 +2379,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import com.google.common.collect.ImmutableList;
                                 import com.google.common.collect.ImmutableSet;
                                 import reactor.core.publisher.Mono;
-                                
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     ImmutableSet<Mono<?>> test() {
@@ -2517,7 +2474,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.core.publisher.Mono;
                                 
                                 import java.util.Optional;
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     Mono<Integer> test() {
@@ -2880,7 +2836,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.core.publisher.Mono;
                                 
                                 import java.util.Optional;
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     ImmutableSet<Mono<Optional<String>>> test() {
@@ -3141,6 +3096,8 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.core.publisher.Mono;
                                 import reactor.function.TupleUtils;
                                 
+                                import static reactor.function.TupleUtils.function;
+                                
                                 class Test {
                                     Mono<String> test() {
                                         return Mono.zip(Mono.just("foo"), Mono.just(1)).map(TupleUtils.function(String::repeat));
@@ -3162,7 +3119,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.core.publisher.Mono;
                                 
                                 import java.util.Optional;
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     Optional<Mono<String>> test() {
@@ -3174,7 +3130,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.core.publisher.Mono;
                                 
                                 import java.util.Optional;
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     Optional<Mono<String>> test() {
@@ -3434,8 +3389,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.core.publisher.Flux;
                                 import reactor.test.StepVerifier;
                                 
-                                import java.util.function.Function;
-                                
                                 class Test {
                                     StepVerifier.FirstStep<Integer> test() {
                                         return Flux.just(1).as(StepVerifier::create);
@@ -3459,8 +3412,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.core.publisher.Mono;
                                 import reactor.test.StepVerifier;
                                 
-                                import java.util.function.Function;
-                                
                                 class Test {
                                     ImmutableSet<StepVerifier.FirstStep<Integer>> test() {
                                         return ImmutableSet.of(StepVerifier.create(Mono.just(1)), Mono.just(2).flux().as(StepVerifier::create));
@@ -3471,8 +3422,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import com.google.common.collect.ImmutableSet;
                                 import reactor.core.publisher.Mono;
                                 import reactor.test.StepVerifier;
-                                
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     ImmutableSet<StepVerifier.FirstStep<Integer>> test() {
@@ -3496,7 +3445,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.test.StepVerifier;
                                 
                                 import java.time.Duration;
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     Duration test() {
@@ -3509,7 +3457,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.test.StepVerifier;
                                 
                                 import java.time.Duration;
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     Duration test() {
@@ -3533,7 +3480,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.test.StepVerifier;
                                 
                                 import java.time.Duration;
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     Duration test() {
@@ -3546,7 +3492,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.test.StepVerifier;
                                 
                                 import java.time.Duration;
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     Duration test() {
@@ -3572,7 +3517,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.test.StepVerifier;
                                 
                                 import java.time.Duration;
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     ImmutableSet<Duration> test() {
@@ -3586,7 +3530,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.test.StepVerifier;
                                 
                                 import java.time.Duration;
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     ImmutableSet<Duration> test() {
@@ -3610,8 +3553,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.core.publisher.Mono;
                                 import reactor.test.StepVerifier;
                                 
-                                import java.util.function.Function;
-                                
                                 class Test {
                                     ImmutableSet<?> test() {
                                         return ImmutableSet.of(Mono.empty().as(StepVerifier::create).expectErrorMatches(IllegalArgumentException.class::equals).verify(), Mono.empty().as(StepVerifier::create).expectError().verifyThenAssertThat().hasOperatorErrorMatching(IllegalStateException.class::equals));
@@ -3622,8 +3563,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import com.google.common.collect.ImmutableSet;
                                 import reactor.core.publisher.Mono;
                                 import reactor.test.StepVerifier;
-                                
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     ImmutableSet<?> test() {
@@ -3647,7 +3586,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.test.StepVerifier;
                                 
                                 import java.time.Duration;
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     Duration test() {
@@ -3660,7 +3598,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.test.StepVerifier;
                                 
                                 import java.time.Duration;
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     Duration test() {
@@ -3684,7 +3621,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.test.StepVerifier;
                                 
                                 import java.time.Duration;
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     Duration test() {
@@ -3698,7 +3634,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.test.StepVerifier;
                                 
                                 import java.time.Duration;
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     Duration test() {
@@ -3723,8 +3658,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.core.publisher.Mono;
                                 import reactor.test.StepVerifier;
                                 
-                                import java.util.function.Function;
-                                
                                 class Test {
                                     ImmutableSet<?> test() {
                                         return ImmutableSet.of(Mono.empty().as(StepVerifier::create).expectError().verifyThenAssertThat().hasOperatorErrorOfType(IllegalArgumentException.class).hasOperatorErrorWithMessage("foo"), Mono.empty().as(StepVerifier::create).expectError(IllegalStateException.class).verifyThenAssertThat().hasOperatorErrorWithMessage("bar"), Mono.empty().as(StepVerifier::create).expectErrorMessage("baz").verifyThenAssertThat().hasOperatorErrorOfType(AssertionError.class));
@@ -3736,8 +3669,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import org.assertj.core.api.Assertions;
                                 import reactor.core.publisher.Mono;
                                 import reactor.test.StepVerifier;
-                                
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     ImmutableSet<?> test() {
@@ -3761,7 +3692,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.test.StepVerifier;
                                 
                                 import java.time.Duration;
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     Duration test() {
@@ -3774,7 +3704,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.test.StepVerifier;
                                 
                                 import java.time.Duration;
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     Duration test() {
@@ -3798,8 +3727,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.core.publisher.Mono;
                                 import reactor.test.StepVerifier;
                                 
-                                import java.util.function.Function;
-                                
                                 class Test {
                                     ImmutableSet<StepVerifier.Step<String>> test() {
                                         return ImmutableSet.of(Mono.just("foo").as(StepVerifier::create).expectNextMatches(s -> s.equals("bar")), Mono.just("baz").as(StepVerifier::create).expectNextMatches("qux"::equals));
@@ -3810,8 +3737,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import com.google.common.collect.ImmutableSet;
                                 import reactor.core.publisher.Mono;
                                 import reactor.test.StepVerifier;
-                                
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     ImmutableSet<StepVerifier.Step<String>> test() {
@@ -3836,8 +3761,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.core.publisher.Mono;
                                 import reactor.test.StepVerifier;
                                 
-                                import java.util.function.Function;
-                                
                                 class Test {
                                     ImmutableSet<StepVerifier.Step<Integer>> test() {
                                         return ImmutableSet.of(Mono.just(1).as(StepVerifier::create).expectNext(), Mono.just(2).as(StepVerifier::create).expectNextCount(0L), Mono.just(3).as(StepVerifier::create).expectNextSequence(ImmutableList.of()), Mono.just(4).as(StepVerifier::create).expectNextSequence(ImmutableList.of(5)));
@@ -3849,8 +3772,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import com.google.common.collect.ImmutableSet;
                                 import reactor.core.publisher.Mono;
                                 import reactor.test.StepVerifier;
-                                
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     ImmutableSet<StepVerifier.Step<Integer>> test() {
@@ -3873,8 +3794,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.core.publisher.Mono;
                                 import reactor.test.StepVerifier;
                                 
-                                import java.util.function.Function;
-                                
                                 class Test {
                                     Object test() {
                                         return Mono.empty().as(StepVerifier::create).expectError().verifyThenAssertThat();
@@ -3884,8 +3803,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                         """
                                 import reactor.core.publisher.Mono;
                                 import reactor.test.StepVerifier;
-                                
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     Object test() {
@@ -3909,7 +3826,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.test.StepVerifier;
                                 
                                 import java.time.Duration;
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     Object test() {
@@ -3922,7 +3838,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.test.StepVerifier;
                                 
                                 import java.time.Duration;
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     Object test() {
@@ -3945,8 +3860,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 import reactor.core.publisher.Mono;
                                 import reactor.test.StepVerifier;
                                 
-                                import java.util.function.Function;
-                                
                                 class Test {
                                     StepVerifier test() {
                                         return Mono.empty().as(StepVerifier::create).expectError().verifyLater().verifyLater();
@@ -3956,8 +3869,6 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                         """
                                 import reactor.core.publisher.Mono;
                                 import reactor.test.StepVerifier;
-                                
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     StepVerifier test() {

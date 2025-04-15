@@ -86,13 +86,14 @@ final class WebClientRulesRecipesTest implements RewriteTest {
                 java(
                         """
                                 import com.google.common.collect.ImmutableSet;
-                                import org.springframework.http.HttpMethod;
                                 import org.springframework.test.web.reactive.server.WebTestClient;
                                 import org.springframework.web.reactive.function.client.WebClient;
                                 
+                                import static org.springframework.http.HttpMethod.GET;
+                                
                                 class Test {
                                     ImmutableSet<?> test() {
-                                        return ImmutableSet.of(WebClient.create().method(HttpMethod.GET), WebTestClient.bindToServer().build().method(HttpMethod.GET));
+                                        return ImmutableSet.of(WebClient.create().method(GET), WebTestClient.bindToServer().build().method(GET));
                                     }
                                 }
                                 """,
@@ -120,13 +121,14 @@ final class WebClientRulesRecipesTest implements RewriteTest {
                 java(
                         """
                                 import com.google.common.collect.ImmutableSet;
-                                import org.springframework.http.HttpMethod;
                                 import org.springframework.test.web.reactive.server.WebTestClient;
                                 import org.springframework.web.reactive.function.client.WebClient;
                                 
+                                import static org.springframework.http.HttpMethod.HEAD;
+                                
                                 class Test {
                                     ImmutableSet<?> test() {
-                                        return ImmutableSet.of(WebClient.create().method(HttpMethod.HEAD), WebTestClient.bindToServer().build().method(HttpMethod.HEAD));
+                                        return ImmutableSet.of(WebClient.create().method(HEAD), WebTestClient.bindToServer().build().method(HEAD));
                                     }
                                 }
                                 """,
@@ -154,13 +156,14 @@ final class WebClientRulesRecipesTest implements RewriteTest {
                 java(
                         """
                                 import com.google.common.collect.ImmutableSet;
-                                import org.springframework.http.HttpMethod;
                                 import org.springframework.test.web.reactive.server.WebTestClient;
                                 import org.springframework.web.reactive.function.client.WebClient;
                                 
+                                import static org.springframework.http.HttpMethod.OPTIONS;
+                                
                                 class Test {
                                     ImmutableSet<?> test() {
-                                        return ImmutableSet.of(WebClient.create().method(HttpMethod.OPTIONS), WebTestClient.bindToServer().build().method(HttpMethod.OPTIONS));
+                                        return ImmutableSet.of(WebClient.create().method(OPTIONS), WebTestClient.bindToServer().build().method(OPTIONS));
                                     }
                                 }
                                 """,
@@ -188,13 +191,14 @@ final class WebClientRulesRecipesTest implements RewriteTest {
                 java(
                         """
                                 import com.google.common.collect.ImmutableSet;
-                                import org.springframework.http.HttpMethod;
                                 import org.springframework.test.web.reactive.server.WebTestClient;
                                 import org.springframework.web.reactive.function.client.WebClient;
                                 
+                                import static org.springframework.http.HttpMethod.PATCH;
+                                
                                 class Test {
                                     ImmutableSet<?> test() {
-                                        return ImmutableSet.of(WebClient.create().method(HttpMethod.PATCH), WebTestClient.bindToServer().build().method(HttpMethod.PATCH));
+                                        return ImmutableSet.of(WebClient.create().method(PATCH), WebTestClient.bindToServer().build().method(PATCH));
                                     }
                                 }
                                 """,
@@ -222,13 +226,14 @@ final class WebClientRulesRecipesTest implements RewriteTest {
                 java(
                         """
                                 import com.google.common.collect.ImmutableSet;
-                                import org.springframework.http.HttpMethod;
                                 import org.springframework.test.web.reactive.server.WebTestClient;
                                 import org.springframework.web.reactive.function.client.WebClient;
                                 
+                                import static org.springframework.http.HttpMethod.POST;
+                                
                                 class Test {
                                     ImmutableSet<?> test() {
-                                        return ImmutableSet.of(WebClient.create().method(HttpMethod.POST), WebTestClient.bindToServer().build().method(HttpMethod.POST));
+                                        return ImmutableSet.of(WebClient.create().method(POST), WebTestClient.bindToServer().build().method(POST));
                                     }
                                 }
                                 """,
@@ -256,13 +261,14 @@ final class WebClientRulesRecipesTest implements RewriteTest {
                 java(
                         """
                                 import com.google.common.collect.ImmutableSet;
-                                import org.springframework.http.HttpMethod;
                                 import org.springframework.test.web.reactive.server.WebTestClient;
                                 import org.springframework.web.reactive.function.client.WebClient;
                                 
+                                import static org.springframework.http.HttpMethod.PUT;
+                                
                                 class Test {
                                     ImmutableSet<?> test() {
-                                        return ImmutableSet.of(WebClient.create().method(HttpMethod.PUT), WebTestClient.bindToServer().build().method(HttpMethod.PUT));
+                                        return ImmutableSet.of(WebClient.create().method(PUT), WebTestClient.bindToServer().build().method(PUT));
                                     }
                                 }
                                 """,

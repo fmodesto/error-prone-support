@@ -24,8 +24,8 @@ final class AssertJEnumerableRulesRecipesTest implements RewriteTest {
                                 import org.assertj.core.api.EnumerableAssert;
                                 
                                 class Test {
-                                    ImmutableSet<EnumerableAssert<?, Integer>> test() {
-                                        return ImmutableSet.of(Assertions.assertThat(ImmutableSet.of(1)).hasSize(Iterables.size(ImmutableSet.of(2))), Assertions.assertThat(ImmutableSet.of(3)).hasSize(ImmutableSet.of(4).size()), Assertions.assertThat(ImmutableSet.of(5)).hasSize(new Integer[0].length));
+                                    ImmutableSet<EnumerableAssert<?, Character>> test() {
+                                        return ImmutableSet.of(Assertions.assertThat("foo").hasSize(Iterables.size(ImmutableSet.of(1))), Assertions.assertThat("bar").hasSize(ImmutableSet.of(2).size()), Assertions.assertThat("baz").hasSize(new Integer[0].length), Assertions.assertThat("qux").hasSize("quux".length()));
                                     }
                                 }
                                 """,
@@ -35,8 +35,8 @@ final class AssertJEnumerableRulesRecipesTest implements RewriteTest {
                                 import org.assertj.core.api.EnumerableAssert;
                                 
                                 class Test {
-                                    ImmutableSet<EnumerableAssert<?, Integer>> test() {
-                                        return ImmutableSet.of(Assertions.assertThat(ImmutableSet.of(1)).hasSameSizeAs(ImmutableSet.of(2)), Assertions.assertThat(ImmutableSet.of(3)).hasSameSizeAs(ImmutableSet.of(4)), Assertions.assertThat(ImmutableSet.of(5)).hasSameSizeAs(new Integer[0]));
+                                    ImmutableSet<EnumerableAssert<?, Character>> test() {
+                                        return ImmutableSet.of(Assertions.assertThat("foo").hasSameSizeAs(ImmutableSet.of(1)), Assertions.assertThat("bar").hasSameSizeAs(ImmutableSet.of(2)), Assertions.assertThat("baz").hasSameSizeAs(new Integer[0]), Assertions.assertThat("qux").hasSameSizeAs("quux"));
                                     }
                                 }
                                 """

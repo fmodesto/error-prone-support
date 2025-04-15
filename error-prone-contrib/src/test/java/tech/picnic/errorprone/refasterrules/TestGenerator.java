@@ -154,6 +154,7 @@ public class TestGenerator implements RewriteTest {
         parser.parse(srcs).forEach(cu -> {
             var cn = cu.getSourcePath().toString().substring(0, cu.getSourcePath().toString().lastIndexOf("."));
             var ast = new RemoveUnusedImports().getVisitor().visit(cu, new InMemoryExecutionContext());
+            ast = new NoStaticImport("*..* *(..)").getVisitor().visit(ast, new InMemoryExecutionContext());
             ast = new ShortenFullyQualifiedTypeReferences().getVisitor().visit(ast, new InMemoryExecutionContext());
             ast = new JavaIsoVisitor<>() {
                 @Override

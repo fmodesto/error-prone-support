@@ -121,6 +121,8 @@ final class ImmutableSortedMapRulesRecipesTest implements RewriteTest {
                                 
                                 import java.util.Comparator;
                                 
+                                import static java.util.Comparator.naturalOrder;
+                                
                                 class Test {
                                     ImmutableSortedMap.Builder<String, Integer> test() {
                                         return ImmutableSortedMap.orderedBy(Comparator.<String>naturalOrder());
