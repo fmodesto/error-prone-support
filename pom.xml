@@ -215,9 +215,9 @@
         <version.nopen-checker>1.0.1</version.nopen-checker>
         <version.nullaway>0.12.6</version.nullaway>
         <version.pitest-git>2.2.1</version.pitest-git>
-        <version.rewrite-templating>1.26.0</version.rewrite-templating>
+        <version.rewrite>8.51.0-SNAPSHOT</version.rewrite>
+        <version.rewrite-templating>0.1.0-dev.262.uncommitted+generics.c606ce9</version.rewrite-templating>
         <version.surefire>3.2.3</version.surefire>
-        <version.rewrite>8.50.2</version.rewrite>
     </properties>
 
     <dependencyManagement>
@@ -503,15 +503,15 @@
             </dependency>
             <dependency>
                 <groupId>org.openrewrite</groupId>
-                <artifactId>rewrite-templating</artifactId>
-                <version>${version.rewrite-templating}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.openrewrite</groupId>
                 <artifactId>rewrite-bom</artifactId>
                 <version>${version.rewrite}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.openrewrite</groupId>
+                <artifactId>rewrite-templating</artifactId>
+                <version>${version.rewrite-templating}</version>
             </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>
