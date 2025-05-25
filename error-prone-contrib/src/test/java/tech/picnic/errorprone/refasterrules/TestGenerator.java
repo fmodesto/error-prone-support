@@ -156,15 +156,15 @@ public class TestGenerator implements RewriteTest {
             var ast = new RemoveUnusedImports().getVisitor().visit(cu, new InMemoryExecutionContext());
             ast = new NoStaticImport("*..* *(..)").getVisitor().visit(ast, new InMemoryExecutionContext());
             ast = new ShortenFullyQualifiedTypeReferences().getVisitor().visit(ast, new InMemoryExecutionContext());
-            ast = new JavaIsoVisitor<>() {
-                @Override
-                public Space visitSpace(Space space, Space.Location loc, Object o) {
-                    if (space.getWhitespace().contains("\n") && getCursor().firstEnclosing(J.MethodDeclaration.class) != null) {
-                        return Space.EMPTY;
-                    }
-                    return super.visitSpace(space, loc, o);
-                }
-            }.visit(ast, new InMemoryExecutionContext());
+//            ast = new JavaIsoVisitor<>() {
+//                @Override
+//                public Space visitSpace(Space space, Space.Location loc, Object o) {
+//                    if (space.getWhitespace().contains("\n") && getCursor().firstEnclosing(J.MethodDeclaration.class) != null) {
+//                        return Space.EMPTY;
+//                    }
+//                    return super.visitSpace(space, loc, o);
+//                }
+//            }.visit(ast, new InMemoryExecutionContext());
             ast = new OrderImports(true).getVisitor().visit(ast, new InMemoryExecutionContext());
             ast = new AutoFormat().getVisitor().visit(ast, new InMemoryExecutionContext());
             cleaned.put(cn, ast.printTrimmed(new JavaPrinter<>()).trim().replace(";import", ";\nimport"));

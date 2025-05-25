@@ -152,7 +152,6 @@ final class EqualityRulesRecipesTest implements RewriteTest {
                                 }
                                 """,
                         """
-                                import java.util.function.Predicate;
                                 import java.util.stream.Stream;
                                 
                                 class Test {

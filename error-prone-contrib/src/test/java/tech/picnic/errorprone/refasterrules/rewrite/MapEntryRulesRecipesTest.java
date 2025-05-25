@@ -69,7 +69,6 @@ final class MapEntryRulesRecipesTest implements RewriteTest {
                                 
                                 import java.util.Comparator;
                                 import java.util.Map;
-                                import java.util.Map.Entry;
                                 
                                 class Test {
                                     ImmutableSet<Comparator<Map.Entry<Integer, String>>> test() {
@@ -101,7 +100,6 @@ final class MapEntryRulesRecipesTest implements RewriteTest {
                         """
                                 import java.util.Comparator;
                                 import java.util.Map;
-                                import java.util.Map.Entry;
                                 
                                 class Test {
                                     Comparator<Map.Entry<Integer, String>> test() {
@@ -137,7 +135,6 @@ final class MapEntryRulesRecipesTest implements RewriteTest {
                                 
                                 import java.util.Comparator;
                                 import java.util.Map;
-                                import java.util.Map.Entry;
                                 
                                 class Test {
                                     ImmutableSet<Comparator<Map.Entry<Integer, String>>> test() {
@@ -169,7 +166,6 @@ final class MapEntryRulesRecipesTest implements RewriteTest {
                         """
                                 import java.util.Comparator;
                                 import java.util.Map;
-                                import java.util.Map.Entry;
                                 
                                 class Test {
                                     Comparator<Map.Entry<Integer, String>> test() {

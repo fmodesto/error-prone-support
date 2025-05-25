@@ -575,7 +575,7 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 
                                 class Test {
                                     Flux<Void> test() {
-                                        return Flux.error(((Supplier<RuntimeException>) null));
+                                        return Flux.error((Supplier<RuntimeException>) null);
                                     }
                                 }
                                 """
@@ -1561,9 +1561,7 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                         """
                                 import reactor.core.publisher.Flux;
                                 import reactor.function.TupleUtils;
-                                
-                                import static reactor.function.TupleUtils.function;
-                                
+                                                                
                                 class Test {
                                     Flux<String> test() {
                                         return Flux.zip(Flux.just("foo", "bar"), Flux.just(1, 2)).map(TupleUtils.function(String::repeat));
@@ -1955,7 +1953,7 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                                 
                                 class Test {
                                     Mono<Void> test() {
-                                        return Mono.error(((Supplier<RuntimeException>) null));
+                                        return Mono.error((Supplier<RuntimeException>) null);
                                     }
                                 }
                                 """
@@ -3095,9 +3093,7 @@ final class ReactorRulesRecipesTest implements RewriteTest {
                         """
                                 import reactor.core.publisher.Mono;
                                 import reactor.function.TupleUtils;
-                                
-                                import static reactor.function.TupleUtils.function;
-                                
+                                                                
                                 class Test {
                                     Mono<String> test() {
                                         return Mono.zip(Mono.just("foo"), Mono.just(1)).map(TupleUtils.function(String::repeat));

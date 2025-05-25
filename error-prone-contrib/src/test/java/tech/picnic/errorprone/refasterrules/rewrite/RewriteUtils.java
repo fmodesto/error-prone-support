@@ -3,6 +3,7 @@ package tech.picnic.errorprone.refasterrules.rewrite;
 import org.junit.jupiter.api.Assumptions;
 import org.openrewrite.Recipe;
 import org.openrewrite.config.CompositeRecipe;
+import org.openrewrite.java.NoStaticImport;
 import org.openrewrite.java.OrderImports;
 import org.openrewrite.java.RemoveUnusedImports;
 import org.openrewrite.java.ShortenFullyQualifiedTypeReferences;
@@ -15,7 +16,7 @@ public class RewriteUtils {
         try {
             Class<?> recipeClass = Class.forName("tech.picnic.errorprone.refasterrules." + name.replace('.', '$'));
             Recipe recipe = (Recipe) recipeClass.getConstructor().newInstance();
-            return new CompositeRecipe(List.of(recipe, new RemoveUnusedImports(), new ShortenFullyQualifiedTypeReferences(),
+            return new CompositeRecipe(List.of(recipe, new RemoveUnusedImports(), new NoStaticImport("*..* *(..)"), new ShortenFullyQualifiedTypeReferences(),
                     new OrderImports(true), new AutoFormat()));
         } catch (Exception e) {
             Assumptions.abort("Recipe " + name + " doesn't exist.");

@@ -311,7 +311,9 @@ final class ImmutableSetRulesRecipesTest implements RewriteTest {
                                 
                                 class Test {
                                     ImmutableSet<ImmutableSet<Integer>> test() {
-                                        return ImmutableSet.of(ImmutableSet.of(1).stream().filter(Predicate.not(ImmutableSet.of(2)::contains)).collect(ImmutableSet.toImmutableSet()), ImmutableSet.of(3).stream().filter(v -> !ImmutableSet.of(4).contains(v)).collect(ImmutableSet.toImmutableSet()));
+                                        return ImmutableSet.of(
+                                                ImmutableSet.of(1).stream().filter(Predicate.not(ImmutableSet.of(2)::contains)).collect(ImmutableSet.toImmutableSet()),
+                                                ImmutableSet.of(3).stream().filter(v -> !ImmutableSet.of(4).contains(v)).collect(ImmutableSet.toImmutableSet()));
                                     }
                                 }
                                 """,
@@ -321,7 +323,9 @@ final class ImmutableSetRulesRecipesTest implements RewriteTest {
                                 
                                 class Test {
                                     ImmutableSet<ImmutableSet<Integer>> test() {
-                                        return ImmutableSet.of(Sets.difference(ImmutableSet.of(1), ImmutableSet.of(2)).immutableCopy(), Sets.difference(ImmutableSet.of(3), ImmutableSet.of(4)).immutableCopy());
+                                        return ImmutableSet.of(
+                                                Sets.difference(ImmutableSet.of(1), ImmutableSet.of(2)).immutableCopy(),
+                                                Sets.difference(ImmutableSet.of(3), ImmutableSet.of(4)).immutableCopy());
                                     }
                                 }
                                 """

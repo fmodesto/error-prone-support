@@ -110,7 +110,6 @@ final class OptionalRulesRecipesTest implements RewriteTest {
                                 import com.google.common.collect.ImmutableSet;
                                 
                                 import java.util.Optional;
-                                import java.util.function.Function;
                                 
                                 class Test {
                                     ImmutableSet<Boolean> test() {

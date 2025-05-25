@@ -61,8 +61,13 @@ final class StringRulesRecipesTest implements RewriteTest {
                                 import java.util.stream.Collectors;
                                 
                                 class Test {
-                                    ImmutableSet<String> test() {
-                                        return ImmutableSet.of(Joiner.on("a").join(new String[]{"foo", "bar"}), Joiner.on("b").join(new CharSequence[]{"foo", "bar"}), Arrays.stream(new String[]{"foo", "bar"}).collect(Collectors.joining("c")), Joiner.on("d").join(ImmutableList.of("foo", "bar")), Streams.stream(Iterables.cycle(ImmutableList.of("foo", "bar"))).collect(Collectors.joining("e")), ImmutableList.of("foo", "bar").stream().collect(Collectors.joining("f")));
+                                    void test() {
+                                        String a = Joiner.on("a").join(new String[]{"foo", "bar"});
+                                        String b = Joiner.on("b").join(new CharSequence[]{"foo", "bar"});
+                                        String c = Arrays.stream(new String[]{"foo", "bar"}).collect(Collectors.joining("c"));
+                                        String d = Joiner.on("d").join(ImmutableList.of("foo", "bar"));
+                                        String e = Streams.stream(Iterables.cycle(ImmutableList.of("foo", "bar"))).collect(Collectors.joining("e"));
+                                        String f = ImmutableList.of("foo", "bar").stream().collect(Collectors.joining("f"));
                                     }
                                 }
                                 """,
@@ -72,8 +77,13 @@ final class StringRulesRecipesTest implements RewriteTest {
                                 import com.google.common.collect.Iterables;
                                 
                                 class Test {
-                                    ImmutableSet<String> test() {
-                                        return ImmutableSet.of(String.join("a", new String[]{"foo", "bar"}), String.join("b", new CharSequence[]{"foo", "bar"}), String.join("c", new String[]{"foo", "bar"}), String.join("d", ImmutableList.of("foo", "bar")), String.join("e", Iterables.cycle(ImmutableList.of("foo", "bar"))), String.join("f", ImmutableList.of("foo", "bar")));
+                                    void test() {
+                                        String a = String.join("a", new String[]{"foo", "bar"});
+                                        String b = String.join("b", new CharSequence[]{"foo", "bar"});
+                                        String c = String.join("c", new String[]{"foo", "bar"});
+                                        String d = String.join("d", ImmutableList.of("foo", "bar"));
+                                        String e = String.join("e", Iterables.cycle(ImmutableList.of("foo", "bar")));
+                                        String f = String.join("f", ImmutableList.of("foo", "bar"));
                                     }
                                 }
                                 """
@@ -163,8 +173,6 @@ final class StringRulesRecipesTest implements RewriteTest {
                                 
                                 import java.util.Optional;
                                 import java.util.function.Predicate;
-                                
-                                import static java.util.function.Predicate.not;
                                 
                                 class Test {
                                     ImmutableSet<Optional<String>> test() {

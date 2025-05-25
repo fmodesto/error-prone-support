@@ -7,6 +7,8 @@ import com.google.errorprone.refaster.Refaster;
 import com.google.errorprone.refaster.annotation.AfterTemplate;
 import com.google.errorprone.refaster.annotation.BeforeTemplate;
 import java.math.BigDecimal;
+import java.util.function.Function;
+
 import org.assertj.core.api.AbstractBigDecimalAssert;
 import org.assertj.core.api.BigDecimalAssert;
 import tech.picnic.errorprone.refaster.annotation.OnlineDocumentation;
@@ -24,6 +26,31 @@ import tech.picnic.errorprone.refaster.annotation.OnlineDocumentation;
 @OnlineDocumentation
 final class AssertJBigDecimalRules {
   private AssertJBigDecimalRules() {}
+
+  static final class RefToLambda<T> {
+    @BeforeTemplate
+    Function<T, String> before() {
+      return T::toString;
+    }
+
+    @AfterTemplate
+    Function<T, String> after() {
+      return e -> e.toString();
+    }
+  }
+
+  static final class LambdaToRef<T> {
+    @BeforeTemplate
+    Function<T, String> before() {
+      return e -> e.toString();
+    }
+
+    @AfterTemplate
+    Function<T, String> after() {
+      return T::toString;
+    }
+  }
+
 
   static final class AbstractBigDecimalAssertIsEqualByComparingTo {
     @BeforeTemplate

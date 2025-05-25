@@ -1,5 +1,6 @@
 package tech.picnic.errorprone.refasterrules.rewrite;
 
+import com.google.common.collect.ImmutableMap;
 import org.junit.jupiter.api.Test;
 import org.openrewrite.Recipe;
 import org.openrewrite.java.JavaParser;
@@ -88,9 +89,7 @@ final class ImmutableSortedSetRulesRecipesTest implements RewriteTest {
                                 import com.google.common.collect.ImmutableSortedSet;
                                 
                                 import java.util.Comparator;
-                                
-                                import static java.util.Comparator.naturalOrder;
-                                
+                                                                
                                 class Test {
                                     ImmutableSortedSet.Builder<String> test() {
                                         return ImmutableSortedSet.orderedBy(Comparator.<String>naturalOrder());
@@ -142,6 +141,8 @@ final class ImmutableSortedSetRulesRecipesTest implements RewriteTest {
 
     @Test
     void testIterableToImmutableSortedSetRecipe() {
+        ImmutableMap.of("1", 4, "2", 5).keySet().contains("3");
+
         Recipe recipe = RewriteUtils.loadRecipe("ImmutableSortedSetRulesRecipes.IterableToImmutableSortedSetRecipe");
         rewriteRun(
                 spec -> spec.recipe(recipe)
